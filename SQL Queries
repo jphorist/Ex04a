@@ -51,3 +51,100 @@ WHERE Department NOT IN ('Administration', 'Finance',
 SELECT FirstName, LastName, Department, OfficePhone
 FROM EMPLOYEE
 WHERE EmployeeNumber BETWEEN 2 AND 5;
+
+/* *** SQL-Query-CH03-22 *** */
+SELECT *
+FROM EMPLOYEE
+WHERE OfficePhone LIKE '360-287-88 ';
+
+/* *** SQL-Query-CH03-24 *** */
+SELECT *
+FROM EMPLOYEE
+WHERE Department LIKE '%ing';
+
+/* *** SQL-Query-CH03-26 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE OfficePhone IS NULL;
+
+/* *** SQL-Query-CH03-28 *** */
+SELECT COUNT(*)
+FROM PROJECT;
+
+/* *** SQL-Query-CH03-30 *** */
+SELECT COUNT(Department) AS NumberOfDepartments
+FROM PROJECT;
+
+/* *** SQL-Query-CH03-32 *** */
+SELECT SUM(MaxHours) AS TotalMaxHours,
+AVG(MaxHours) AS AverageMaxHours,
+MIN(MaxHours) AS MinimumMaxHours,
+MAX(MaxHours) AS MaximumMaxHours
+FROM PROJECT
+WHERE ProjectID <= 1200;
+
+/* *** SQL-Query-CH03-34 *** */
+SELECT *
+FROM PROJECT
+WHERE MaxHours > AVG(MaxHours);
+
+/* *** SQL-Query-CH03-36 *** */
+SELECT Department, Count(*) AS NumberOfEmployees
+FROM EMPLOYEE
+GROUP BY Department;
+
+/* *** SQL-Query-CH03-38 *** */
+SELECT Department, Count(*) AS NumberOfEmployees
+FROM EMPLOYEE
+WHERE EmployeeNumber <= 10
+GROUP BY Department
+HAVING COUNT(*) > 1;
+
+/* *** SQL-Query-CH03-40 *** */
+SELECT DISTINCT EmployeeNumber
+FROM ASSIGNMENT
+WHERE HoursWorked > 50;
+
+/* *** SQL-Query-CH03-42 *** */
+SELECT DISTINCT ProjectID
+FROM PROJECT
+WHERE Department = 'Accounting';
+
+/* *** SQL-Query-CH03-44 *** */
+SELECT FirstName, LastName
+FROM EMPLOYEE
+WHERE EmployeeNumber IN
+(SELECT DISTINCT EmployeeNumber
+FROM ASSIGNMENT
+WHERE HoursWorked > 40
+AND ProjectID IN
+(SELECT ProjectID
+FROM PROJECT
+WHERE Department = 'Accounting'));
+
+/* *** SQL-Query-CH03-46 *** */
+SELECT FirstName, LastName, ProjectID, HoursWorked
+FROM EMPLOYEE, ASSIGNMENT
+WHERE EMPLOYEE.EmployeeNumber = ASSIGNMENT.EmployeeNumber;
+
+/* *** SQL-Query-CH03-48 *** */
+SELECT FirstName, LastName, ProjectID, HoursWorked
+FROM EMPLOYEE JOIN ASSIGNMENT
+ON EMPLOYEE.EmployeeNumber = ASSIGNMENT.EmployeeNumber
+ORDER BY EMPLOYEE.EmployeeNumber, ProjectID;
+
+/* *** SQL-Query-CH03-50 *** */
+SELECT FirstName, LastName, ProjectID, HoursWorked
+FROM EMPLOYEE AS E JOIN ASSIGNMENT AS A
+ON E.EmployeeNumber = A.EmployeeNumber
+WHERE HoursWorked > 50
+ORDER BY LastName, FirstName, ProjectID;
+
+/* *** SQL-INSERT-CH03-05 *** */
+INSERT INTO PROJECT
+(ProjectName, Department, MaxHours, StartDate)
+VALUES('2017 Q4 Tax Preparation', 'Accounting', 175.00,
+'10-DEC-17');
+/* *** SQL-Query-CH03-52 *** */
+SELECT * FROM PROJECT;
+
