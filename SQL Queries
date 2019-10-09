@@ -1,3 +1,21 @@
 /* I (JP) did the evens, and Nick did the odds*/
 
 
+
+/* *** SQL-Query-CH03-02 *** */
+SELECT *
+FROM PROJECT;
+
+/* *** SQL-Query-CH03-04 *** */
+SELECT ProjectName, MaxHours, Department
+FROM PROJECT;
+
+/* *** SQL-Query-CH03-06 *** */
+SELECT DISTINCT Department
+FROM PROJECT;
+
+/* *** SQL-Query-CH03-08 *** */
+SELECT *
+FROM PROJECT
+WHERE StartDate = '05/10/2017';
+
