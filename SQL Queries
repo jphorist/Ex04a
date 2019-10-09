@@ -19,3 +19,35 @@ SELECT *
 FROM PROJECT
 WHERE StartDate = '05/10/2017';
 
+/* *** SQL-Query-CH03-10 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE Department = 'Accounting';
+
+/* *** SQL-Query-CH03-12 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+ORDER BY Department DESC;
+
+/* *** SQL-Query-CH03-14 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE Department = 'Accounting'
+AND OfficePhone = '360-285-8430';
+
+/* *** SQL-Query-CH03-16 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE Department = 'Accounting'
+AND NOT OfficePhone = '360-285-8430';
+
+/* *** SQL-Query-CH03-18 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE Department NOT IN ('Administration', 'Finance',
+'Accounting');
+
+/* *** SQL-Query-CH03-20 *** */
+SELECT FirstName, LastName, Department, OfficePhone
+FROM EMPLOYEE
+WHERE EmployeeNumber BETWEEN 2 AND 5;
