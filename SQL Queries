@@ -1,4 +1,4 @@
-/* I (JP) did the evens, and Nick did the odds*/
+/* JP did the evens and Nick did the odds*/
 
 /* *** SQL-Query-CH03-01 *** */ 
 SELECT  ProjectID, ProjectName, Department, MaxHours, StartDate, EndDate 
