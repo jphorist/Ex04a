@@ -32,7 +32,7 @@ WHERE  Department = 'Finance';
 /* *** SQL-Query-CH03-08 *** */
 SELECT *
 FROM PROJECT
-WHERE StartDate = '05/10/2017';
+WHERE StartDate = '2017/05/10';
 
 /* *** SQL-Query-CH03-09 *** */ 
 SELECT * 
