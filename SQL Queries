@@ -8,7 +8,8 @@ FROM PROJECT;
 SELECT *
 FROM PROJECT;
 
-/* *** SQL-Query-CH03-03 *** */ SELECT ProjectName, Department, MaxHours 
+/* *** SQL-Query-CH03-03 *** */ 
+SELECT ProjectName, Department, MaxHours 
 FROM PROJECT;
 
 /* *** SQL-Query-CH03-04 *** */
